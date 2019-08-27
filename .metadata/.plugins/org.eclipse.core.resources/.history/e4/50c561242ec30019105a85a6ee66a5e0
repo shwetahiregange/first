@@ -1,0 +1,58 @@
+package com.javaTpoint.service;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.when;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.stubbing.Answer;
+
+import com.javaTpoint.dao.Loader;
+import com.javaTpoint.model.StudentStatus;
+
+@RunWith(MockitoJUnitRunner.class)
+public class BufferReadServiceTest {
+	
+	
+	
+	@Mock
+	private StudentStatusService studentStatusService;
+	
+	@Mock
+	private BufferReadService bufferReadService;
+	
+	@Test
+	public void  loadTest() throws IOException  {
+		
+        StudentStatus studentStatus=new StudentStatus();
+            
+		doAnswer(new Answer() {
+			public Object answer(InvocationOnMock invocation) throws Throwable{
+				Object[] arguments=invocation.getArguments();
+				return null;
+			}
+		}).when(bufferReadService).load();
+		
+//		Mockito.doThrow(new RuntimeException()).when(bufferReadService).load();
+//		
+//		
+
+	}
+	
+
+}

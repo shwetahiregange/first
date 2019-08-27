@@ -1,0 +1,22 @@
+package com.javaTpoint.service;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.*;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.javaTpoint.model.StudentStatus;
+
+public class BufferReadServiceTest {
+	@Autowired
+	private StudentStatusService studentStatusService;
+
+	public void testload() {
+	BufferReadService br= new BufferReadService();
+	StudentStatus studentStatus=new StudentStatus();
+	
+	studentStatusService.addUser(studentStatus);
+	  br.load();
+	assertEquals(br.load(),br.load());
+	
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;MovieInfoService&apos; to &apos;movie-info-service&apos;&#x0D;&#x0A;- Original element: &apos;MovieInfoService&apos;&#x0D;&#x0A;- Renamed element: &apos;MovieInfoService&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;MovieInfoService&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=MovieInfoService" name="movie-info-service" references="true" stamp="1565679359550" version="1.0"/>
+</session>

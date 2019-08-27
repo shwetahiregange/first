@@ -1,0 +1,104 @@
+@charset "ISO-8859-1";
+*{
+	margin: 0px;
+	padding:0px;
+	box-sizing: border-box;
+}
+body{
+	font-size: 20px;
+	color: white;
+}
+header{
+	background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.5)), url('http://www.ecp-sd.com/new/wp-content/uploads/2016/02/blog2.jpg');
+	background-size: cover;
+	background-repeat:no-repeat;
+	background-position:center;
+	height:100vh;
+}
+.logo{
+	height: 140px;
+	width: auto;
+	float:left;
+	margin-top: 25px;
+	margin-left: 10px;
+}
+
+h1{
+	font-size: 200%;
+	word-spacing: 5px;
+	letter-spacing: 3px;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+	font-weight: lighter;
+	float:center;
+}
+
+.b1{
+	margin: 100px;
+	margin-left: 300px;
+}
+.b1 button {
+	
+  background-color: transparent; /* Green background */
+  border: 1px solid #bf55ec; /* Green border */
+  color: #FFD700;
+  font-size:20px; 
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: right; /* Float the buttons side by side */
+  width:40%; 
+  text-transform: uppercase;
+	border-radius: 200px;
+	transition: background-color 0.2s,border 0.2s,color 0.2s;
+}
+
+/* Clear floats (clearfix hack) */
+.b1:after {
+  content: "";
+  clear: both;
+  color: #bf55ec;
+  display: inline-block;
+}
+
+.b1 button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.b1 button:hover {
+  background-color: white;
+}
+.reg{
+	overflow:hidden;
+background-color:transparent;
+align:center;
+margin-bottom:3px;
+float :center;
+}
+
+
+.clrchange{
+	animation: colorchange 1s infinite;
+}
+@keyframes colorchange{
+	0%{color: red;}
+	25%{color: #bf55ec;}
+	50%{color: white}
+	100%{color:#bf55ec; }
+}
+
+@media only screen and (max-width: 1180px){
+	.main{
+		width: 100%;
+		padding: 0 2px;
+	}
+}
+
+@media only screen and (max-width: 990px){
+	h1{font-size: 200%;}
+}
+
+@media only screen and (max-width: 780px){
+	h1{font-size: 180%;}
+	.main-content{display: none;}
+}

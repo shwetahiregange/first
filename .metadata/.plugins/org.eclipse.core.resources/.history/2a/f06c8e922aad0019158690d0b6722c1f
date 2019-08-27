@@ -1,0 +1,122 @@
+package com.javaTpoint.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.javaTpoint.model.StudentName;
+import com.javaTpoint.model.StudentStatus;
+import com.javaTpoint.service.StudentNameService;
+import com.javaTpoint.service.StudentStatusService;
+
+@Controller
+public class HomeController {
+
+
+
+	@Autowired  
+	private StudentNameService studentNameService;  
+
+	@Autowired  
+	private StudentStatusService studentStatusService; 
+
+
+	@RequestMapping("/")  
+	public String indexPage()
+	{  
+		return "index";  
+	}
+
+	@RequestMapping("/generate")  
+	public String generateIdPage()
+	{  
+		return "generate";  
+	}
+
+	@RequestMapping(value="/Generate", method=RequestMethod.POST)  
+	public String idGenerate()
+	{  
+		
+		for(int i=1;i<=20;i++)
+		{
+			StudentStatus studentStatus=new StudentStatus();
+			studentStatus.setId((int)i);
+			studentStatus.setStatus(true);
+			studentStatusService.addUser(studentStatus);
+		}
+		
+
+		return "successpage";  
+	}
+
+	@RequestMapping("/addstud")  
+	public String addStudent(ModelMap model){ 
+
+		return "addstud";  
+	}
+
+	@RequestMapping("/searchstud")  
+	public String searchStudent(){  
+		return "searchstud";  
+	}
+
+	@RequestMapping(value="/Search", method=RequestMethod.GET)  
+	public ModelAndView getUser(@RequestParam("id")int id, Model m){  
+
+		m.addAttribute("ss", studentNameService.getUser(id)) ;
+		return new ModelAndView("studentsearch");
+	} 
+
+	@RequestMapping(value="/liststud", method = RequestMethod.GET)  
+
+
+	public ModelAndView getUsers(StudentName studentName,Model m){    
+		m.addAttribute("tt", studentNameService.getAllUsers());
+		return new ModelAndView("liststud");
+	}
+
+	@RequestMapping(value="/deleteStud")  
+	public String deletePage(){  
+		return "deleteStud";  
+	}
+
+	@RequestMapping(value="/Delete" ,method=RequestMethod.POST)  
+	public String deleteStudent(int id){ 
+		studentNameService.delete(id);
+		StudentStatus updateRow= studentStatusService.getUser(id);
+		updateRow.setStatus(true);
+		studentStatusService.addUser(updateRow);
+		return "successpage";  
+	}
+
+	@RequestMapping(value="/updateStud")  
+	public String updatePage(){  
+		return "updateStud";  
+	}
+
+	@RequestMapping(value="/Update", method=RequestMethod.POST)  
+	public String updateStudent(StudentName studentName){  
+		StudentName updateRecord= studentNameService.getUser(studentName.getId());
+		updateRecord.setName(studentName.getName());
+		studentNameService.addUser(updateRecord);
+		return "successpage";  
+	}
+
+	@RequestMapping(value="/Addition", method = RequestMethod.POST)  
+	public String addUser( int id,StudentName studentName)
+	{  
+		StudentStatus updateRow= studentStatusService.getUser(id);
+		updateRow.setStatus(false);
+		studentNameService.addUser(studentName);
+		studentStatusService.addUser(updateRow); 
+		return "successpage";
+	}
+
+
+}
+

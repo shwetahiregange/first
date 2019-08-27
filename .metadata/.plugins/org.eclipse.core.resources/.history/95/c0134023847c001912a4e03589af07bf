@@ -1,0 +1,27 @@
+package com.javaTpoint;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+public class FileRead implements Loader {
+   public void load() {
+	   String fileName = "temp.txt";
+	   
+	   try {
+           // FileReader reads text files in the default encoding.
+           FileReader fileReader = 
+               new FileReader(fileName);
+
+              
+
+                 
+       }
+       catch(FileNotFoundException ex) {
+           System.out.println(
+               "Unable to open file '" + 
+               fileName + "'");                
+       }
+   }
+}
+   
+

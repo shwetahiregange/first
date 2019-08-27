@@ -1,0 +1,12 @@
+package com.example.demo;
+
+import java.util.List;
+
+import com.example.demo.Employee;
+
+@Service
+public interface EmployeeService {
+	
+	Employee getEmployeeById(long id);
+	List<Employee> getAllEmployees();
+}

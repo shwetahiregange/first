@@ -1,0 +1,13 @@
+package com.javaTpoint.controller;
+import org.junit.*;
+import static org.junit.Assert.assertEquals;
+
+
+public class HomeControllerTest {
+	@Test
+	public void testIdGenerate() {
+	HomeController hc= new HomeController();
+	String out=hc.idGenerate();
+	assertEquals("Successfully Added....!",out);
+	}	
+}

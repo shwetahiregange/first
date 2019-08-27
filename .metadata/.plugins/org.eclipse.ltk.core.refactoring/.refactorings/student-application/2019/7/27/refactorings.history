@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.javaTpoint.SpringbootStudentApplicationTests&apos; to &apos;StudentApplicationTests&apos;&#x0D;&#x0A;- Original project: &apos;student-application&apos;&#x0D;&#x0A;- Original element: &apos;com.javaTpoint.SpringbootStudentApplicationTests&apos;&#x0D;&#x0A;- Renamed element: &apos;com.javaTpoint.StudentApplicationTests&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;SpringbootStudentApplicationTests&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/test\/java&lt;com.javaTpoint{SpringbootStudentApplicationTests.java[SpringbootStudentApplicationTests" matchStrategy="1" name="StudentApplicationTests" qualified="false" references="true" similarDeclarations="false" stamp="1561965358520" textual="false" version="1.0"/>
+</session>

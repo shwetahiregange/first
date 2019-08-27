@@ -1,0 +1,8 @@
+package com.javaTpoint;
+import java.util.Optional;
+
+import org.springframework.data.repository.CrudRepository;  
+public interface UserRepository extends CrudRepository<UserRecord, String> {
+
+	Optional<UserRecord> findOne(String id);  
+}  

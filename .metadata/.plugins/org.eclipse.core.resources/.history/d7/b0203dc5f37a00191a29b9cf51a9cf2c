@@ -1,0 +1,20 @@
+<%@page import="com.javaTpoint.StudentName" %>
+<%@page import="java.util.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+</head>
+
+<body>
+
+   <h3>Search Students</h3>
+  <form action="Search" method="get">
+  Enter Student Id:<input type="text" name="id" required="required"/>
+  <input type="submit" value="Serach"/>
+  
+  
+  </form>
+</body>
+
+</html>

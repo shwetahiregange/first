@@ -1,0 +1,7 @@
+package com.javaTpoint.service;
+import org.junit.*;
+
+import static org.junit.Assert.assertEquals;
+public class BufferReadServiceTest {
+
+}

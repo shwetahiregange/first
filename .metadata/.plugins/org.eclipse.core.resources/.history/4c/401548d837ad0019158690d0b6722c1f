@@ -1,0 +1,74 @@
+package com.javaTpoint.controller;
+
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
+import com.javaTpoint.model.StudentName;
+import com.javaTpoint.service.StudentNameService;
+
+@Controller
+public class HomeController {
+
+	@Autowired
+	RestTemplate restTemplate;
+
+	@Autowired  
+	private StudentNameService studentNameService; 
+
+	@RequestMapping("/")  
+	public String indexPage()
+	{
+		return "index";
+	}
+
+	@RequestMapping("/addstud")  
+	public String addStudent(ModelMap model){ 
+
+		return "addstud";  
+	}
+
+
+	@RequestMapping(value="/Addition", method=RequestMethod.POST)  
+	public String addShwetha(StudentName studentName)
+	{ 
+		HttpHeaders headers = new HttpHeaders();
+		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+		HttpEntity<StudentName> entity = new HttpEntity<StudentName>(studentName,headers);
+		StudentName retrievedData = new StudentName();
+		retrievedData=restTemplate.exchange("http://localhost:8080/template", HttpMethod.POST, entity, StudentName.class).getBody();
+		studentNameService.addUser(retrievedData);
+		return "successpage"; 
+	} 
+	
+	
+	@RequestMapping(value="/Search", method=RequestMethod.POST)  
+	public String addShwetha(StudentName studentName)
+	{ 
+		HttpHeaders headers = new HttpHeaders();
+		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+		HttpEntity<StudentName> entity = new HttpEntity<StudentName>(studentName,headers);
+		StudentName retrievedData = new StudentName();
+		retrievedData=restTemplate.exchange("http://localhost:8080/template", HttpMethod.POST, entity, StudentName.class).getBody();
+		studentNameService.addUser(retrievedData);
+		return "successpage"; 
+	} 
+	
+
+
+
+
+
+
+}

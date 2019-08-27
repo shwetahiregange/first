@@ -1,0 +1,54 @@
+package com.javaTpoint.service;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.when;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.stubbing.Answer;
+
+import com.javaTpoint.dao.Loader;
+import com.javaTpoint.model.StudentStatus;
+
+@RunWith(MockitoJUnitRunner.class)
+public class BufferReadServiceTest {
+	
+	@Mock
+	private Loader loader;
+	
+	@Mock
+	private StudentStatusService studentStatusService;
+	
+	@InjectMocks
+	private BufferReadService bufferReadService;
+	
+	@Test
+	public void  loadTest() throws IOException  {
+		
+		BufferedReader br = new BufferedReader( new FileReader("D://text.txt"));
+        StudentStatus studentStatus=new StudentStatus();
+         br.readLine();     
+		when(studentStatusService.addUser(studentStatus)).thenReturn(studentStatus);
+	  
+		doAnswer(new Answer() {
+			public Object answer(InvocationOnMock invocation) throws Throwable{
+				Object[] arguments=invocation.getArguments();
+				return null;
+			}
+		}).when(bufferReadService).load();
+
+		
+	}
+	
+
+}

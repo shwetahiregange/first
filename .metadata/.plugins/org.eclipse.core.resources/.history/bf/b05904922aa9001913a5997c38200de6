@@ -1,0 +1,42 @@
+package com.javaTpoint.controller;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
+import org.junit.*;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit4.SpringRunner;
+import com.javaTpoint.StudentApplicationTests;
+import com.javaTpoint.dao.StudentStatusRepository;
+import com.javaTpoint.model.StudentStatus;
+import com.javaTpoint.service.StudentStatusService;
+
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class HomeControllerTest extends StudentApplicationTests {
+	
+
+	@Mock
+	StudentStatusRepository studentStatusRepositorymock;
+	
+	@Autowired
+	StudentStatusService studentStatusService;
+	@Autowired
+	StudentStatus studentStatus;
+	
+	@Test
+	public void testIdGenerate() {
+		HomeController hc=new HomeController();
+	
+		when(studentStatusRepositorymock.save(studentStatus)).thenReturn(new StudentStatus() );
+		assertEquals(20, hc.idGenerate());
+				 
+	}
+	
+}	
+
+

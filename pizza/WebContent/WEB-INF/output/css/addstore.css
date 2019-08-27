@@ -1,0 +1,24 @@
+@charset "ISO-8859-1";
+input[type=text],input[type=password]{
+	padding: 12px 20px;
+	margin:5px;
+	display:inline-block;
+	border:1px solid #ccc;
+	box-sizing: border-box;
+	text-align:center;
+}
+.addst{
+	overflow:hidden;
+background-color:transparent;
+align:center;
+}
+.addst{
+	float:center;
+color:#FFD700;
+font-size:30px;
+text-align:right;
+padding:40px 60px;
+box-sizing:border-box;
+display:inline-block;
+margin-right: 3px;
+}

@@ -1,0 +1,25 @@
+package com.javaTpoint.controller;
+import org.junit.*;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.javaTpoint.dao.StudentStatusRepository;
+import com.javaTpoint.service.StudentStatusService;
+
+import static org.junit.Assert.assertEquals;
+
+
+public class HomeControllerTest {
+	@Autowired  
+	private StudentStatusService studentStatusService; 
+	
+	 @Autowired 
+	 private  StudentStatusRepository studentStatusRepository;
+	
+	@Test
+	public void testIdGenerate() {
+	HomeController hc= new HomeController();
+
+	String out=hc.idGenerate();
+	assertEquals("Successfully Added....!",out);
+	}	
+}

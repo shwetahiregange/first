@@ -1,0 +1,1 @@
+insert into pojo values(0,'shweta');

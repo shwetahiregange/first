@@ -1,0 +1,27 @@
+package com.javaTpoint.controller;
+import org.junit.*;
+
+import com.javaTpoint.model.StudentStatus;
+
+import static org.junit.Assert.assertEquals;
+
+public class HomeControllerTest {
+	
+//	@Ignore
+	@Test
+	public void testIdGenerate() {
+		 
+	HomeController hc= new HomeController();
+	
+	for(int i=1;i<=20;i++)
+	{
+		StudentStatus studentStatus=new StudentStatus();
+		studentStatus.setId((int)i);
+		studentStatus.setStatus(true);
+		studentStatusService.addUser(studentStatus);
+	}
+
+	String out=hc.idGenerate();
+	assertEquals(hc.idGenerate(),out);
+	}	
+}
